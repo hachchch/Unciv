@@ -8,7 +8,8 @@
         "science": { "type": "number" },
         "culture": { "type": "number" },
         "happiness": { "type": "number" },
-        "faith": { "type": "number" }
+        "faith": { "type": "number" },
+        "industry": { "type": "number" },
     },
     "additionalProperties": false
 }
