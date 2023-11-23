@@ -18,7 +18,8 @@ open class Stats(
     var science: Float = 0f,
     var culture: Float = 0f,
     var happiness: Float = 0f,
-    var faith: Float = 0f
+    var faith: Float = 0f,
+    var industry: Float = 0f,
 ): Iterable<Stats.StatValuePair> {
 
     // This is what facilitates indexed access by [Stat] or add(Stat,Float)
@@ -32,6 +33,7 @@ open class Stats(
             Stat.Culture -> ::culture
             Stat.Happiness -> ::happiness
             Stat.Faith -> ::faith
+            Stat.Industry -> ::industry
         }
     }
 
@@ -54,11 +56,12 @@ open class Stats(
                 && culture == otherStats.culture
                 && happiness == otherStats.happiness
                 && faith == otherStats.faith
+                && industry == otherStats.industry
     }
 
     /** **Non-Mutating function**
      * @return a new instance containing the same values as `this` */
-    fun clone() = Stats(production, food, gold, science, culture, happiness, faith)
+    fun clone() = Stats(production, food, gold, science, culture, happiness, faith, industry)
 
     /** @return `true` if all values are zero */
     fun isEmpty() = (
@@ -68,7 +71,8 @@ open class Stats(
             && science == 0f
             && culture == 0f
             && happiness == 0f
-            && faith == 0f )
+            && faith == 0f
+            && industry == 0f )
 
     /** Reset all values to zero (in place) */
     fun clear() {
@@ -79,6 +83,7 @@ open class Stats(
         culture = 0f
         happiness = 0f
         faith = 0f
+        industry = 0f
     }
 
     /** **Mutating function**
@@ -92,6 +97,7 @@ open class Stats(
         culture += other.culture
         happiness += other.happiness
         faith += other.faith
+        industry += other.industry
         return this
     }
 
@@ -124,7 +130,8 @@ open class Stats(
         science * number,
         culture * number,
         happiness * number,
-        faith * number
+        faith * number,
+        industry * number
     )
 
     /** **Mutating function**
@@ -137,6 +144,7 @@ open class Stats(
         culture *= number
         happiness *= number
         faith *= number
+        industry *= number
     }
 
     /** **Non-Mutating function**
@@ -153,6 +161,7 @@ open class Stats(
         culture *= 6
         happiness *= 10 // base
         faith *= 5
+        industry *= 4 // may be change
     }
 
     /** ***Not*** only a debug helper. It returns a string representing the content, already _translated_.
@@ -199,6 +208,7 @@ open class Stats(
         if (culture != 0f) yield(StatValuePair(Stat.Culture, culture))
         if (happiness != 0f) yield(StatValuePair(Stat.Happiness, happiness))
         if (faith != 0f) yield(StatValuePair(Stat.Faith, faith))
+        if (industry != 0f) yield(StatValuePair(Stat.Industry, industry))
     }
 
     /** Enables aggregates over the values, never empty */
@@ -213,6 +223,7 @@ open class Stats(
             yield(culture)
             yield(happiness)
             yield(faith)
+            yield(industry)
         }
 
     /** Returns an iterator over the elements of this object, wrapped as [StatValuePair]s */
