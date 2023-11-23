@@ -25,6 +25,7 @@
           "culture": { "type": "number" },
           "happiness": { "type": "number" },
           "faith": { "type": "number" },
+          "industry": { "type": "number" },
 
           "uniques": { "$ref": "https://raw.githubusercontent.com/yairm210/Unciv/master/docs/Modders/schemas/uniques.json" },
 
