@@ -18,7 +18,8 @@ enum class Stat(
     Science(NotificationIcon.Science, UncivSound.Chimes, Fonts.science, colorFromHex(0x8c9dff)),
     Culture(NotificationIcon.Culture, UncivSound.Paper, Fonts.culture, colorFromHex(0x8b60ff)),
     Happiness(NotificationIcon.Happiness, UncivSound.Click, Fonts.happiness, colorFromHex(0xffd800)),
-    Faith(NotificationIcon.Faith, UncivSound.Choir, Fonts.faith, colorFromHex(0xcbdfff));
+    Faith(NotificationIcon.Faith, UncivSound.Choir, Fonts.faith, colorFromHex(0xcbdfff)),
+    Industry(NotificationIcon.Industry, UncivSound.Click, Fonts.industry, colorFromHex(0x5b5b5b));
 
     companion object {
         val statsUsableToBuy = setOf(Gold, Food, Science, Culture, Faith)
